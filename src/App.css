@@ -20,3 +20,55 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h5 {
+  font-weight: 900;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.navbar {
+  margin-bottom: 24px;
+}
+
+.media:hover {
+  background-color: #f5f7fa;
+  cursor: pointer;
+}
+
+.category, .name {
+  color: #bf0016;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.post_info {
+  margin: 16px 0 32px 0;
+}
+
+.post_image {
+  margin-bottom: 32px;
+}
+
+.share_button:hover {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
