@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Container from "../../components/Container";
-import ContentLoader from 'react-content-loader'
-import Media from "../../components/Media";
-import Spinner from "../../components/Spinner";
 import _ from 'underscore';
-import InfiniteScroll from 'react-infinite-scroller';
 import { fromJS } from 'immutable';
 import { truncate, stripHTML } from "../../utils";
 import Card from "../../components/Card";
-import { Row, Col, CardDeck } from "react-bootstrap";
+import { CardDeck } from "react-bootstrap";
+import { showAlert } from '../../actions';
+import { useDispatch } from 'react-redux';
 
 const ListContainer = ({match}) => {
     const [hasError, setErrors] = useState(false);
     const [suggestions, setSuggestions] = useState();
     const [loading, setLoading] = useState(true);
     const hasSuggestion = !_.isEmpty(suggestions);
+    const dispatch = useDispatch();
 
     async function fetchData() {
         const res = await fetch(`https://id.techinasia.com/wp-json/techinasia/2.0/posts?per_page=3&page=${Math.floor(Math.random() * 100) + 1}`);
@@ -24,7 +23,11 @@ const ListContainer = ({match}) => {
             setSuggestions(fromJS(res.posts));
             setLoading(false);
         })
-        .catch(err => setErrors(err));
+        .catch(err => {
+            dispatch(showAlert({ isOpen: true,
+                err}));
+            setErrors(err);
+        });
     }
 
     useEffect(() => {

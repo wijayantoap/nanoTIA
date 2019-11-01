@@ -9,11 +9,14 @@ import moment from 'moment';
 import { FacebookShareButton, TwitterShareButton } from 'react-share';
 import { FacebookIcon, TwitterIcon } from 'react-share';
 import ContentLoader from 'react-content-loader'
+import { showAlert } from '../../actions';
+import { useDispatch } from 'react-redux';
 
 const PostContainer = ({ match }) => {
     const [hasError, setErrors] = useState(false);
     const [post, setPost] = useState({});
     const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
 
     async function fetchData() {
         const res = await fetch(`https://id.techinasia.com/wp-json/techinasia/3.0/posts/${match.params.slug}`);
@@ -23,7 +26,11 @@ const PostContainer = ({ match }) => {
             setPost(fromJS(res));
             setLoading(false);
         })
-        .catch(err => setErrors(err));
+        .catch(err => {
+            dispatch(showAlert({ isOpen: true,
+                err}));
+            setErrors(err);
+        });
     }
 
     useEffect(() => {

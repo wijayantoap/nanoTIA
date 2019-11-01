@@ -1,9 +1,8 @@
 
 import React, { useEffect } from "react";
-import Navbar from "../../components/Navbar";
-
 import PostContainer from "../../containers/PostContainer";
 import SuggestionContainer from "../../containers/SuggestionContainer";
+import NavbarContainer from "../../containers/NavbarContainer";
 
 const Post = ({match}) => {
 
@@ -13,7 +12,7 @@ const Post = ({match}) => {
 
     return(
     <>
-        <Navbar />
+        <NavbarContainer />
         <PostContainer match={match}/>
         <SuggestionContainer match={match}/>
     </>

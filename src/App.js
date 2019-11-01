@@ -10,12 +10,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
+
+
   return (
     <Router>
-        <Switch>
-          <Route path="/post/:slug" component={Post} />
-          <Route path="/" component={Home} />
-        </Switch>
+      
+      <Switch>
+        <Route path="/post/:slug" component={Post} />
+        <Route path="/" component={Home} />
+      </Switch>
     </Router>
   );
 }

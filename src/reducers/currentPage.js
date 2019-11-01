@@ -3,7 +3,7 @@ const currentPage = (state = 1, action) => {
         case 'INCREMENT_CURRENT_PAGE':
             return state + 1
         default:
-            return state
+            return state;
     }
 }
 

@@ -10,3 +10,10 @@ export const loadPage = () => {
         type: 'INCREMENT_CURRENT_PAGE'
     };
 };
+
+export const showAlert = payload => {
+    return {
+        type: 'SHOW_ALERT',
+        payload
+    };
+};

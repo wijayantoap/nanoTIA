@@ -3,7 +3,7 @@ const postReducer = (state = [], action) => {
         case 'LOAD_DATA':
             return action.payload
         default:
-            return state
+            return state;
     }
 }
 

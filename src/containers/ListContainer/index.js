@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { Link } from "react-router-dom";
 import _ from 'underscore';
 import { fromJS } from 'immutable';
-import { loadData, loadPage } from '../../actions';
+import { loadData, loadPage, showAlert } from '../../actions';
 import { truncate, stripHTML } from "../../utils";
 import { useSelector, useDispatch } from 'react-redux';
 import { Carousel } from 'react-bootstrap';
@@ -28,7 +28,11 @@ const ListContainer = () => {
             dispatch(loadData(currentPage === 1 ? fromJS(res.posts) : posts.merge(fromJS(res.posts))));
             setIsLoading(false);
         })
-        .catch(err => setErrors(err));
+        .catch(err => {
+            dispatch(showAlert({ isOpen: true,
+                err}));
+            setErrors(err);
+        });
     }
 
     function loadMore() {
