@@ -39,6 +39,10 @@ a:hover{
   text-decoration: none;
 }
 
+.list_item:hover {
+  background-color: #f5f7fa;
+}
+
 .navbar {
   margin-bottom: 24px;
 }
