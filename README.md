@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Preview: https://nanotia-db0cc.firebaseapp.com/
+*There might be a CORS Problem
+
 ## Available Scripts
 
 In the project directory, you can run:
